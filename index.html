@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> task 3</title>
+    <link rel="stylesheet" href="3,1.css">
+    <link rel="icon" href="3.icon.png"
+</head>
+<body>
+    <div class="container">
+        <h1>تسجيل</h1>
+        <img src="3.png" alt="logo" class="logo">
+        <form id="registrationForm">
+            <label for="name">الاسم:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">البريد الإلكتروني:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="gender">الجنس:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+            </select>
+
+            <label>
+                أوافق على 
+            <a href="3,2.html">الشروط و الاحكام</a>
+            </label>
+            <input type="checkbox" required>
+            <div class="button-container">
+                <button type="submit">إرسال</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const gender = document.getElementById("gender").value;
+
+            if (name === "" || email === "" || password === "") {
+                alert("يرجى ملء جميع الحقول المطلوبة.");
+                return;
+            }
+
+            alert(`شكراً لك، ${name}! تم تسجيلك بنجاح.\nالبريد الإلكتروني: ${email}\nالجنس: ${gender}`);
+            document.getElementById("registrationForm").reset();
+        });
+    </script>
+</body>
+</html>
